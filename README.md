@@ -1,2 +1,2 @@
-# CTAM-SSCL
-Official implementation of 'Tracklet-awareness  semi-supervised contrastive learning for vide-based unsupervised vehicle re-identification'
+# CTAM-CTACL-VVReID
+Official implementation of 'Camera-Tracklet-Aware Contrastive Learning for Unsupervised Vehicle Re-Identification'
