@@ -9,7 +9,8 @@ Recently, vehicle re-identification methods based on deep learning constitute re
 
 ## Dependencies
 
-This project mainly complied with Python3.6, Pytorch 1.3. All details are included in the 'requirement.txt'
+This project mainly complied with Python3.6, Pytorch 1.2. Nvidia driver version is 460.91
+All details are included in the 'requirement.txt'
 
 ~~~
 #Setting the environment
