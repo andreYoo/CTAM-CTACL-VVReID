@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #CTAM-CTACL-VVReID
 Official implementation of 'Camera-Tracklet-Aware Contrastive Learning for Unsupervised Vehicle Re-Identification'
 
@@ -92,3 +93,7 @@ Since the scale of Veri-Wild dataset is too large, we may have a segment fault i
 }
 ~~~
 *This paper has been accepted from IROS 2021. We will update the BibTeX code corresponding to the proceeding of the conference.
+=======
+# SSQML-DSM
+Unsupervised Vehicle Re-Identification based on Self-supervised Quadruplet Metric Learning using Dictionary-based Sample Mining
+>>>>>>> a415b22e28082071af924d755c08668f90420c58

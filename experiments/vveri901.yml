@@ -1,0 +1,48 @@
+CONFIG_NAME: 'vveri901'
+GPUS: '0'
+DATA_DIR: 'data/'
+OUTPUT_DIR: 'output/vveri901'
+WORKERS: 4
+PRINT_FREQ: 1
+
+DATASET:
+    DATASET: 'vveri901'
+    ROOT: 'data/'
+    CAM_NUM: 43
+    RE: 0.5
+MODEL:
+    NAME: 'resnet50'
+    PRETRAINED: 'models/imagenet/resnet50-19c8e357.pth'
+    IMAGE_SIZE:
+    - 256
+    - 128
+    FEATURES: 2048
+    CLASSES: 0
+MLP:
+    TYPE: 'SMLC'
+SSCL:
+    TEMP: 0.07
+    BTEMP: 0.07
+    MODE: 'None'
+    L: 0.2
+    T: 0.5
+MPLP:
+    T: 0.6
+    L: 10
+TRAIN:
+    BATCH_SIZE: 128
+    SHUFFLE: true
+    BEGIN_EPOCH: 0
+    END_EPOCH: 20
+    RESUME: false
+    CHECKPOINT: 'output/vveri901/checkpoint.pth.tar'
+    OPTIMIZER: 'sgd'
+    LR: 0.1
+    LR_FACTOR: 0.1
+    LR_STEP: 10
+    WEIGHT_DECAY: 0.0005
+    MOMENTUM: 0.9
+    NESTEROV: true
+TEST:
+    BATCH_SIZE: 128
+    MODEL_FILE: 'output/vveri901/checkpoint.pth.tar'
