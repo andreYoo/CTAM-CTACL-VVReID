@@ -26,6 +26,7 @@ Perhaps, you may need to create 'logs' and 'models' directries.
 ├── experiments <br>
 ├── lib <br>
 ├── logs <br>
+├── learnt_models #Extract weight files for reproducting experimental results <br>
 ├── models <br>
 │   └── imagenet #Extract backbone network checkpoint here <br>
 ├── output # Extract the checkpoints to reproduct the results. <br>
