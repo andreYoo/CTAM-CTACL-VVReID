@@ -76,21 +76,10 @@ You can download the checkpoint files to reproduct the experiment results from [
 
 
 ## Code reference.
-* The code is mainly encouraged by [GSMLP-SMLC](https://github.com/andreYoo/GSMLP-SMLC.git) and [MLCReID](https://github.com/kennethwdk/MLCReID)
-
-
-
-## Current issue[!!!].
-Since the scale of Veri-Wild dataset is too large, we may have a segment fault issue when you run the training code for the dataset. We provide a source code file to train the proposed method using CPU and DRAM settings. 'train_with_cpu.py' is it. Unfortunately, Training our model based on CPU is extremely slower than GPU-based learning. It may need over than 24 hours for one epoch.
-
+* The code is mainly encouraged by [SSML](https://github.com/andreYoo/VeRI_SSML_FD.git) 
 
 
 ## Reference.
 ~~~
-@article{yu2021unsupervised,
-  title={Unsupervised Vehicle Re-Identification via Self-supervised Metric Learning using Feature Dictionary},
-  author={Yu, Jongmin and Oh, Hyeontaek},
-  journal={arXiv preprint arXiv:2103.02250},
-  year={2021}
-}
+Would be updated
 ~~~
