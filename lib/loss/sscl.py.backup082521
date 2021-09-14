@@ -1,0 +1,86 @@
+from __future__ import print_function
+
+import torch
+import torch.nn as nn
+import pdb
+import numpy as np
+class CTAM_SSCL_Loss(nn.Module):
+    """A loss functions for the camera-tracklet-awareness memory-based Semi-supervised contrastive learning"""
+    def __init__(self, temperature=0.07, contrast_mode='all',base_temperature=0.07):
+        super(CTAM_SSCL_Loss, self).__init__()
+        self.temperature = temperature
+        self.contrast_mode = contrast_mode
+        self.base_temperature = base_temperature
+
+    def forward(self,memory,logits,camids,trackids=None,type='local',thr=0.5):
+        """Compute loss for model. If both `labels` and `mask` are None,
+        it degenerates to SimCLR unsupervised loss:
+        https://arxiv.org/pdf/2002.05709.pdf
+
+        Args:
+            features: hidden vector of shape [bsz, n_views, ...].
+            labels: ground truth of shape [bsz].
+            mask: contrastive mask of shape [bsz, bsz], mask_{i,j}=1 if sample j
+                has the same class as sample i. Can be asymmetric.
+        Returns:
+            A loss scalar.
+        """
+
+        if type=='local':
+            loss = []
+            pos_margine = []
+            for i,feat in enumerate(logits):
+                _cam_logit = feat[memory.mem_CID==camids[i]] #basement
+                _tid_list = memory.mem_TID[memory.mem_CID==camids[i]]
+
+                anchor_dot_contrast = torch.div(_cam_logit,self.temperature)
+                logits_max, _ = torch.max(anchor_dot_contrast, dim=0, keepdim=True)
+                anchor_dot_contrast = anchor_dot_contrast - logits_max.detach() #Stabilisation
+
+                _positive = anchor_dot_contrast[_tid_list==trackids[i]] #positive
+                _num_positive = len(_positive)
+
+                exp_logits = torch.exp(anchor_dot_contrast)
+                # mask-out self-contrast cases
+
+                log_prob = _positive - torch.log(exp_logits.sum(0, keepdim=True))
+
+                # compute mean of log-likelihood over positive
+                mean_log_prob_pos = (log_prob).sum(0) / (_num_positive)
+                mean_log_prob_pos = - (self.temperature / self.base_temperature) * mean_log_prob_pos
+                loss.append(mean_log_prob_pos)
+                pos_margine.append(torch.max(_cam_logit[_tid_list==trackids[i]])) #positive
+               
+            return torch.mean(torch.stack(loss)),torch.mean(torch.stack(pos_margine))
+
+        elif type=='global':
+            loss = []
+            pos_list =  []
+            for i,feat in enumerate(logits):
+                _cam_logit = feat[memory.mem_CID!=camids[i]] #basement
+                anchor_dot_contrast = torch.div(_cam_logit,self.temperature)
+                logits_max, _ = torch.max(anchor_dot_contrast, dim=0, keepdim=True)
+                anchor_dot_contrast = anchor_dot_contrast - logits_max.detach() #Stabilisation
+                
+                _positive = anchor_dot_contrast[_cam_logit>thr]
+                _num_positive = len(_positive)
+
+                if _num_positive==0:
+                    _positive = torch.max(logits)
+                    _num_positive = 1.0
+                pos_list.append(_num_positive)
+
+
+
+                exp_logits = torch.exp(anchor_dot_contrast)
+                # mask-out self-contrast cases
+
+                log_prob = _positive - torch.log(exp_logits.sum(0, keepdim=True))
+
+                # compute mean of log-likelihood over positive
+                mean_log_prob_pos = (log_prob).sum(0) / (_num_positive)
+                mean_log_prob_pos = - (self.temperature / self.base_temperature) * mean_log_prob_pos
+                loss.append(mean_log_prob_pos)
+            return torch.mean(torch.stack(loss)),np.mean(pos_list)
+
+
