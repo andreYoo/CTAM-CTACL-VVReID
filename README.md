@@ -33,8 +33,13 @@ pip install -r requirements.txt
 
 
 ## Dataset preparation
-[Veri-776](https://vehiclereid.github.io/VeRi/) dataset and [Veri-wild](https://github.com/PKU-IMRE/VERI-Wild) dataset are used for this work.
+[VVeRI-901](https://gas.graviti.cn/dataset/hello-dataset/VVeRI901) is mainly used base a benchmark for the video-based vehicle re-id. Additonally, [Veri-776](https://vehiclereid.github.io/VeRi/) dataset and [Veri-wild](https://github.com/PKU-IMRE/VERI-Wild) dataset are also used for this work.
 To train the proposed method, change the ditectory names to 'bounding_box_train' (training set), 'bounding_box_test' (test set), 'query' (query set).
+In using VVeRI-901 dataset, 
+~~~
+Would be added.
+~~~
+
 In using Veri-Wild dataset, to evaluate the small, medium, and large test set. you have to make the directories as follows:
 ~~~
 output_test_middle_img_path =  './test_middle/'
@@ -56,7 +61,7 @@ You can download the backbone network model from [here](https://drive.google.com
 
 ## How to train and test
 ~~~
-./do_exp.sh
+./exp.sh
 ~~~
 
 
