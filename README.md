@@ -19,7 +19,7 @@ pip install -r requirements.txt
 * You may need to install additional libraries, but, just do 'pip install brbrbr'
 
 ## File configuration
-
+~~~
 <br>
 ├── data #Extract dataset to this directory. <br>
 ├── experiments <br>
@@ -29,7 +29,7 @@ pip install -r requirements.txt
 │   └── imagenet #Extract backbone network checkpoint here <br>
 ├── output # Extract the checkpoints to reproduct the results. <br>
 └── tools <br>
-
+~~~
 
 
 ## Dataset preparation
