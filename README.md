@@ -61,6 +61,7 @@ You can download the backbone network model from [here](https://drive.google.com
 
 
 ## How to train and test
+See the script file.
 ~~~
 ./exp.sh
 ~~~
