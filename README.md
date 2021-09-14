@@ -70,7 +70,7 @@ See the script file.
 
 ## Reproduce the experimental results
 
-You can download the checkpoint files to reproduct the experiment results from [here](https://drive.google.com/drive/folders/1iglDV_H1obl5vopL6pFA6KiY7s-8fb0S?usp=sharing). After download it. Extract the file under the './outputs/veri776' or './outputs/veri-wild' depending on what you want to reproduct.
+You can download the checkpoint files to reproduct the experiment results from [here](https://www.dropbox.com/s/gzp6s6056facwsh/models.tar.gz?dl=0). After download it. Extract the file under the './learnt_models/'
 
 
 
