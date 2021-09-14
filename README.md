@@ -19,7 +19,7 @@ pip install -r requirements.txt
 * You may need to install additional libraries, but, just do 'pip install brbrbr'
 
 ## File configuration
-Perhaps, you may need to create 'logs' and 'models' directries.
+Perhaps, you may need to create 'logs', 'models', and 'learnt_models' directries.
 ~~~
 <br>
 ├── data #Extract dataset to this directory. <br>
