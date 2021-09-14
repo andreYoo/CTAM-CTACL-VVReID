@@ -16,7 +16,7 @@ All details are included in the 'requirement.txt'
 #Setting the environment
 pip install -r requirements.txt
 ~~~
-
+* You may need to install additional libraries, but, just do 'pip install brbrbr'
 
 ## File configuration
 
