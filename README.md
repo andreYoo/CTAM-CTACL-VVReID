@@ -68,7 +68,6 @@ See the script file.
 ~~~
 
 
-
 ## Reproduce the experimental results
 
 You can download the checkpoint files to reproduct the experiment results from [here](https://www.dropbox.com/s/gzp6s6056facwsh/models.tar.gz?dl=0). After download it. Extract the file under the './learnt_models/'
@@ -81,5 +80,12 @@ You can download the checkpoint files to reproduct the experiment results from [
 
 ## Reference.
 ~~~
-Would be updated
+@misc{yu2021cameratrackletaware,
+      title={Camera-Tracklet-Aware Contrastive Learning for Unsupervised Vehicle Re-Identification}, 
+      author={Jongmin Yu and Junsik Kim and Minkyung Kim and Hyeontaek Oh},
+      year={2021},
+      eprint={2109.06401},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ~~~
