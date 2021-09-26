@@ -1,5 +1,6 @@
 # CTAM-CTACL-VVReID
 Official implementation of 'Camera-Tracklet-Aware Contrastive Learning for Unsupervised Vehicle Re-Identification'
+*Source code for a under-review paper.
 
 ## Abastract
 ![workflow](https://user-images.githubusercontent.com/13298951/133180399-afdfeaec-4038-47df-82d1-9abde0ee5b30.png)
